@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloons Game</title>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #flash-container {
+            width: 800px;
+            height: 600px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="flash-container"></div>
+
+    <script>
+        // Ruffle configuration
+        window.addEventListener("DOMContentLoaded", function() {
+            var rufflePlayer = RufflePlayer.createPlayer();
+            var container = document.getElementById("flash-container");
+            rufflePlayer.loadFlashMovie(container, "bloons1.swf"); // Assuming bloons.swf is the name of your Bloons game file
+        });
+    </script>
+</body>
+</html>
