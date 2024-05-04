@@ -3,34 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloons Game</title>
+    <title>Bloons Game Selector</title>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
         body {
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
             background-color: #f0f0f0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
         #flash-container {
             width: 800px;
             height: 600px;
             border: 1px solid #ccc;
+            display: none; /* Initially hide the container */
         }
     </style>
 </head>
 <body>
+    <button id="bloons1-btn">Bloons 1</button>
+    <button id="bloons2-btn">Bloons 2</button>
     <div id="flash-container"></div>
 
     <script>
-        // Ruffle configuration
-        window.addEventListener("DOMContentLoaded", function() {
+        // Function to load Bloons game based on the button clicked
+        function loadBloonsGame(gameName) {
             var rufflePlayer = RufflePlayer.createPlayer();
             var container = document.getElementById("flash-container");
-            rufflePlayer.loadFlashMovie(container, "bloons1.swf"); // Assuming bloons.swf is the name of your Bloons game file
+            container.style.display = "block"; // Show the container
+            rufflePlayer.loadFlashMovie(container, gameName);
+        }
+
+        // Event listeners for the buttons
+        document.getElementById("bloons1-btn").addEventListener("click", function() {
+            loadBloonsGame("bloons1.swf");
+        });
+
+        document.getElementById("bloons2-btn").addEventListener("click", function() {
+            loadBloonsGame("bloons2.swf");
         });
     </script>
 </body>
