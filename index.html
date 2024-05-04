@@ -47,10 +47,9 @@
     <script>
         // Function to load Bloons game based on the button clicked
         function loadBloonsGame(gameName) {
-            var rufflePlayer = RufflePlayer.createPlayer();
             var container = document.getElementById("flash-container");
             container.style.display = "block"; // Show the container
-            rufflePlayer.loadFlashMovie(container, gameName);
+            RufflePlayer.loader.load(container, gameName);
         }
 
         // Event listeners for the buttons
