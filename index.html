@@ -9,12 +9,13 @@
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            font-family: Arial, sans-serif;
             background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
         }
         button {
             padding: 10px 20px;
@@ -31,7 +32,7 @@
             background-color: #0056b3;
         }
         #flash-container {
-            width: 800px;
+            width: 100%;
             height: 600px;
             border: 1px solid #ccc;
             display: none; /* Initially hide the container */
@@ -39,17 +40,21 @@
     </style>
 </head>
 <body>
-    <button id="bloons1-btn">Bloons 1</button>
-    <button id="bloons2-btn">Bloons 2</button>
-    <button id="bloons3-btn">Bloons 3</button>
-    <div id="flash-container"></div>
+    <div class="container">
+        <h1>Bloons Game Selector</h1>
+        <p>Select a Bloons game to play:</p>
+        <button id="bloons1-btn">Bloons 1</button>
+        <button id="bloons2-btn">Bloons 2</button>
+        <button id="bloons3-btn">Bloons 3</button>
+        <div id="flash-container"></div>
+    </div>
 
     <script>
         // Function to load Bloons game based on the button clicked
         function loadBloonsGame(gameName) {
             var container = document.getElementById("flash-container");
             container.style.display = "block"; // Show the container
-            RufflePlayer.loader.load(container, gameName);
+            RufflePlayer.runSwf(gameName, container);
         }
 
         // Event listeners for the buttons
