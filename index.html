@@ -54,7 +54,8 @@
         function loadBloonsGame(gameName) {
             var container = document.getElementById("flash-container");
             container.style.display = "block"; // Show the container
-            RufflePlayer.runSwf(gameName, container);
+            container.setAttribute("data", gameName);
+            RufflePlayer.bootstrap([container]);
         }
 
         // Event listeners for the buttons
